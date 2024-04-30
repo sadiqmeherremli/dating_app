@@ -1,12 +1,23 @@
-import 'package:dating_app/Constants/app_colors.dart';
+import '../Constants/app_colors.dart';
+import '../widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
+import '../widgets/profile_row.dart';
+import '../widgets/tab_button.dart';
 
 class HomePage extends StatelessWidget {
+  // ignore: use_key_in_widget_constructors
   const HomePage({Key? key});
+  
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+
+    // Sabit fotoğraf yolları
+    const String imagePath1 = 'assets/image/jenny_23.png';
+    const String imagePath2 = 'assets/image/corolina.jpg';
+    const String imagePath3 = 'assets/image/laurent.png';
+    const String imagePath4 = 'assets/image/liyy.png';
 
     return Scaffold(
       appBar: CustomAppBar(theme: textTheme),
@@ -29,12 +40,27 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Expanded(
               child: ListView.builder(
-                itemCount: 3, // Kaç tane ProfileRow olacağını belirleyin
+                itemCount: 2, // Toplam iki satır olacak
                 itemBuilder: (context, index) {
-                  return ProfileRow();
+                  return const Column(
+                    children: [
+                      // Profil satırı 1
+                      ProfileRow(
+                        imagePath1: imagePath1,
+                        imagePath2: imagePath2,
+                      ),
+                  
+                      // Profil satırı 2
+                      ProfileRow(
+                        imagePath1: imagePath1,
+                        imagePath2: imagePath2,
+                      ),
+                     // Satırlar arası boşluk
+                    ],
+                  );
                 },
               ),
             ),
@@ -45,173 +71,3 @@ class HomePage extends StatelessWidget {
   }
 }
 
-// İki insan profili içeren bir satır widget'i
-class ProfileRow extends StatelessWidget {
-  const ProfileRow({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Row(
-        children: [
-          Expanded(
-            child: ProfileCard(),
-          ),
-          SizedBox(width: 10), // İki profil arasında boşluk bırakır
-          Expanded(
-            child: ProfileCard(),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
-// Tek bir profil kartı widget'i
-class ProfileCard extends StatelessWidget {
-  const ProfileCard({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      // Profil kartı içeriği buraya gelecek
-      child: Column(
-        children: [
-          Container(
-            height: 143, // Profil kartının yüksekliği
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                color: AppColors.bgColor,
-        spreadRadius: 0,
-        blurRadius: 0,
-        offset: Offset(0, 0), // changes position of shadow
-                
-              ),
-              ],
-              
-
-              color: Colors.green,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(14),
-                topRight: Radius.circular(14),
-              ), // Örnek renk
-            ),
-            // Profil kartı içeriği buraya gelecek
-            child: Center(
-              child: Text("image"),
-            ),
-          ),
-          Container(
-            height: 99, // Profil kartının yüksekliği
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-               // changes position of shadow
-                color: AppColors.bgColor
-              ),],
-              color: AppColors.bgColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(14),
-                bottomRight: Radius.circular(14),
-              ),
-            ),
-            // Profil kartı içeriği buraya gelecek
-            child: Center(
-              child: Text("about"),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-
-class TabButton extends StatelessWidget {
-  const TabButton({
-    super.key,
-    required this.textTheme,
-    required this.backgroungColor,
-    required this.text,  this.isRight = false,
-  });
-
-  final TextTheme textTheme;
-  final Color backgroungColor;
-  final String text;
-  final bool isRight ;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-            color: backgroungColor, borderRadius: BorderRadius.circular(200)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 14),
-          child: Center(
-            child: Text(
-              text,
-              style: textTheme.displayLarge
-                  ?.copyWith(color: isRight?AppColors.colorBlack : AppColors.colorWhite, fontSize: 14),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    super.key, required this.theme,
-  });
-  final TextTheme theme;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColors.bgColor,
-      
-      leading: const Icon(Icons.person),
-      title:  Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [Text("Hello,Sadig",style: theme.displayLarge ,), 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Icon(Icons.location_on, size: 16,color: AppColors.colorPrimary, ),
-            Text("Baku, Azerbaijan",style: theme.displaySmall,),
-          ],
-        )],
-      ),
-      actions: [
-        
-        Container( 
-        
-          
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: AppColors.notificationCardColor),
-            child: const Padding(
-              padding: EdgeInsets.all(13),
-              child: Icon(Icons.notifications_outlined),
-            )),
-      ],
-    );
-  }
-
-  @override
-  
-  Size get preferredSize => const Size.fromHeight(56);
-}
