@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // flutter_svg paketini ekledik
+import 'package:flutter_svg/flutter_svg.dart';  
 import '../constants/app_colors.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -36,7 +36,6 @@ class ProfileCard extends StatelessWidget {
             ),
           ),
           Container(
-           
             decoration: const BoxDecoration(
               boxShadow: [
                 BoxShadow(color: AppColors.bgColor),
@@ -67,17 +66,11 @@ class ProfileCard extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    
-                    
-                    
                     children: [
                       Expanded(
                         child: Container(
-                         
-                         
-                          
                           decoration: BoxDecoration(
-                            color: Color(0xFFFEECEC),
+                            color: const Color(0xFFFEECEC),
                             borderRadius: BorderRadius.circular(12)
                           ),
                           child: Padding(
@@ -87,34 +80,36 @@ class ProfileCard extends StatelessWidget {
                               "assets/image/icon_like.svg",
                               width: 10,
                               height: 10,
-                            
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(width: 6,),
+                      const SizedBox(width: 6,),
                        Expanded(
                          child: Container(
-                          
-                          
-                         
-                          
                           decoration: BoxDecoration(
-                            color: Color(0xFFFAFAFA),
-                            borderRadius: BorderRadius.circular(12)
-                          ),
+                            color: const Color(0xFFFAFAFA),
+                              borderRadius: BorderRadius.circular(12)),
                           child: Padding(
-                            padding: const EdgeInsets.only(top:6,bottom: 6,),
-                         
-                            child: Image.asset("assets/image/icon_hi.png",
-                            width: 14,height: 14,)
-                          ),
-                                               ),
-                       ),
-                       SizedBox(width: 14,)
+                              padding: const EdgeInsets.only(
+                                top: 6,
+                                bottom: 6,
+                              ),
+                              child: Image.asset(
+                                "assets/image/icon_hi.png",
+                                width: 14,
+                                height: 14,
+                              )),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 14,
+                      )
                     ],
                   ),
-                  SizedBox(height: 12,)
+                  const SizedBox(
+                    height: 12,
+                  )
                 ],
               ),
             ),

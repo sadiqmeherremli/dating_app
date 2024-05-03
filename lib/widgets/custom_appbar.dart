@@ -7,12 +7,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key, required this.theme,
   });
   final TextTheme theme;
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.bgColor,
-      
       leading: const Icon(Icons.person),
       title:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,10 +24,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         )],
       ),
       actions: [
-        
-        Container( 
-        
-          
+        Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: AppColors.notificationCardColor),
