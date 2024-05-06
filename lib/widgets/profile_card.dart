@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';  
+import 'package:flutter_svg/flutter_svg.dart';
 import '../constants/app_colors.dart';
 
 class ProfileCard extends StatelessWidget {
-  final String imagePath; 
+  final String imagePath;
   final TextTheme theme;
-  final String profileName; 
-  final String country; 
+  final String profileName;
+  final String country;
 
-  const ProfileCard({Key? key, required this.imagePath,  required this.theme, required this.profileName, required this.country}) : super(key: key);
+  const ProfileCard(
+      {Key? key,
+      required this.imagePath,
+      required this.theme,
+      required this.profileName,
+      required this.country})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +72,7 @@ class ProfileCard extends StatelessWidget {
                             height: 16,
                             // ignore: deprecated_member_use
                             color: AppColors.colorBorder),
-                        Text(country,style: theme.displaySmall),
+                        Text(country, style: theme.displaySmall),
                       ],
                     ),
                   ),
@@ -76,12 +82,10 @@ class ProfileCard extends StatelessWidget {
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFEECEC),
-                            borderRadius: BorderRadius.circular(12)
-                          ),
+                              color: const Color(0xFFFEECEC),
+                              borderRadius: BorderRadius.circular(12)),
                           child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8, top:8),
-                        
+                            padding: const EdgeInsets.only(bottom: 8, top: 8),
                             child: SvgPicture.asset(
                               "assets/image/icon_like.svg",
                               width: 10,
@@ -90,11 +94,13 @@ class ProfileCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 6,),
-                       Expanded(
-                         child: Container(
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Expanded(
+                        child: Container(
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFAFAFA),
+                              color: const Color(0xFFFAFAFA),
                               borderRadius: BorderRadius.circular(12)),
                           child: Padding(
                               padding: const EdgeInsets.only(
@@ -125,5 +131,3 @@ class ProfileCard extends StatelessWidget {
     );
   }
 }
-
-

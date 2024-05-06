@@ -6,13 +6,14 @@ class TabButton extends StatelessWidget {
     super.key,
     required this.textTheme,
     required this.backgroungColor,
-    required this.text,  this.isRight = false,
+    required this.text,
+    this.isRight = false,
   });
 
   final TextTheme textTheme;
   final Color backgroungColor;
   final String text;
-  final bool isRight ;
+  final bool isRight;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +26,9 @@ class TabButton extends StatelessWidget {
           child: Center(
             child: Text(
               text,
-              style: textTheme.displayLarge
-                  ?.copyWith(color: isRight?AppColors.colorBlack : AppColors.colorWhite, fontSize: 14),
+              style: textTheme.displayLarge?.copyWith(
+                  color: isRight ? AppColors.colorBlack : AppColors.colorWhite,
+                  fontSize: 14),
             ),
           ),
         ),
@@ -34,4 +36,3 @@ class TabButton extends StatelessWidget {
     );
   }
 }
-

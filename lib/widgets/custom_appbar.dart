@@ -12,11 +12,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.bgColor,
-      leadingWidth:80 ,
+      leadingWidth: 80,
       leading: const Padding(
-  padding: EdgeInsets.only(left: 26),
-  child: CircleAvatar(
-    radius: 22, 
+        padding: EdgeInsets.only(left: 26),
+        child: CircleAvatar(
+          radius: 22,
           backgroundImage: AssetImage("assets/image/profile_picture.jpg"),
         ),
       ),
@@ -58,8 +58,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 "assets/icon/notification_icon.svg",
                 width: 18,
                 height: 19.72,
-                
-               
               ),
             ),
           ),
@@ -71,4 +69,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 }
-

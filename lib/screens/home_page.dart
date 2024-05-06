@@ -11,26 +11,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-     const String imagePath1 = 'assets/image/jenny_23.png';
+    const String imagePath1 = 'assets/image/jenny_23.png';
     const String imagePath2 = 'assets/image/corolina.jpg';
     const String imagePath3 = 'assets/image/laurent.png';
     const String imagePath4 = 'assets/image/lily.png';
     const String imagePath5 = 'assets/image/adela.png';
     const String imagePath6 = 'assets/image/agnes.png';
 
-
     return Scaffold(
       appBar: CustomAppBar(theme: textTheme),
       body: Padding(
-        padding: const EdgeInsets.only(right: 26,left: 26,top: 20,bottom: 20),
+        padding:
+            const EdgeInsets.only(right: 26, left: 26, top: 20, bottom: 20),
         child: Column(
           children: [
             Container(
               margin: EdgeInsets.all(5),
               decoration: BoxDecoration(
-                color: Color(0xFFFAFAFA),
-                borderRadius: BorderRadius.circular(200)
-              ),
+                  color: Color(0xFFFAFAFA),
+                  borderRadius: BorderRadius.circular(200)),
               child: Row(
                 children: [
                   TabButton(
@@ -54,7 +53,7 @@ class HomePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return const Column(
                     children: [
-                       ProfileRow(
+                      ProfileRow(
                         imagePath1: imagePath1,
                         imagePath2: imagePath2,
                         profileName1: 'Jenny, 23',
@@ -83,13 +82,9 @@ class HomePage extends StatelessWidget {
                 },
               ),
             ),
-            
-            
-           
           ],
         ),
       ),
     );
   }
 }
-

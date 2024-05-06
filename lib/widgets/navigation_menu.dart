@@ -16,8 +16,7 @@ class NavigationMenu extends StatefulWidget implements PreferredSizeWidget {
   _NavigationMenuState createState() => _NavigationMenuState();
 
   @override
-Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
 class _NavigationMenuState extends State<NavigationMenu> {
