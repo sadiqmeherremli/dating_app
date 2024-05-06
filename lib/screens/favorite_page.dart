@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_colors.dart';
-import '../widgets/custom_appbar.dart';
 import '../widgets/profile_row.dart';
-import '../widgets/tab_button.dart';
+
+
 
 class FavoritePage extends StatelessWidget {
 
@@ -17,6 +16,7 @@ class FavoritePage extends StatelessWidget {
     const String imagePath2 = 'assets/image/corolina.jpg';
 
 
+
        return Scaffold(
      appBar: AppBar(title: const Text(''),),
       body: Padding(
@@ -27,26 +27,31 @@ class FavoritePage extends StatelessWidget {
             const SizedBox(height: 24),
             Expanded(
               child: ListView.builder(
-                itemCount: 2,
+                itemCount: 1,
                 itemBuilder: (context, index) {
                   return const Column(
                     children: [
                       ProfileRow(
                         imagePath1: imagePath1,
                         imagePath2: imagePath2,
+                        profileName1: 'Jenny, 23',
+                        profileName2: 'Caroline Sky, 29',
+                        countryCard1: 'Indonesia',
+                        countryCard2: 'Spain',
                       ),
                       ProfileRow(
                         imagePath1: imagePath1,
                         imagePath2: imagePath2,
+                        profileName1: 'Laurent, 27',
+                        profileName2: 'Lily James, 29',
+                        countryCard1: 'New York, USA',
+                        countryCard2: 'Malaysia',
                       ),
                     ],
                   );
                 },
               ),
             ),
-            
-            
-           
           ],
         ),
       ),

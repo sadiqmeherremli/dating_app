@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'profile_card.dart'; // Profil kartı widget'ını içeriye dahil edin
+import 'profile_card.dart';
 
 class ProfileRow extends StatelessWidget {
-  final String imagePath1; // İlk fotoğrafın yolu
-  final String imagePath2; // İkinci fotoğrafın yolu
+  final String imagePath1; 
+  final String imagePath2; 
+  final String profileName1;  
+  final String profileName2; 
+  final String countryCard1; 
+  final String countryCard2; 
   
 
   const ProfileRow({
     Key? key,
     required this.imagePath1,
-    required this.imagePath2,
+    required this.imagePath2, required this.profileName1, required this.profileName2, required this.countryCard1, required this.countryCard2,
   }) : super(key: key);
   
 
@@ -22,11 +26,11 @@ class ProfileRow extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: ProfileCard(imagePath: imagePath1, theme: textTheme, ), // İlk fotoğraf için Profil Kartı
+            child: ProfileCard(imagePath: imagePath1, theme: textTheme, profileName: profileName1, country: countryCard1, ), // İlk fotoğraf için Profil Kartı
           ),
           SizedBox(width: 10), // İki profil arasında boşluk bırakır
           Expanded(
-            child: ProfileCard(imagePath: imagePath2, theme: textTheme, ), // İkinci fotoğraf için Profil Kartı
+            child: ProfileCard(imagePath: imagePath2, theme: textTheme, profileName: profileName2, country: countryCard2, ), // İkinci fotoğraf için Profil Kartı
           ),
         ],
       ),

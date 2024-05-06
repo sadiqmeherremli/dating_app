@@ -5,8 +5,10 @@ import '../constants/app_colors.dart';
 class ProfileCard extends StatelessWidget {
   final String imagePath; 
   final TextTheme theme;
+  final String profileName; 
+  final String country; 
 
-  const ProfileCard({Key? key, required this.imagePath,  required this.theme}) : super(key: key);
+  const ProfileCard({Key? key, required this.imagePath,  required this.theme, required this.profileName, required this.country}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,20 +49,24 @@ class ProfileCard extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 14,top: 10), 
+              padding: const EdgeInsets.only(left: 14, top: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 6),
-                    child: Text("Jenny, 23", style: theme.displayLarge),
+                    child: Text(profileName, style: theme.displayLarge),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Row(
                       children: [
-                        const Icon(Icons.location_on, size: 16, color: AppColors.colorBorder),
-                        Text("Indonesia",style: theme.displaySmall),
+                        SvgPicture.asset("assets/icon/location_icon.svg",
+                            width: 16,
+                            height: 16,
+                            // ignore: deprecated_member_use
+                            color: AppColors.colorBorder),
+                        Text(country,style: theme.displaySmall),
                       ],
                     ),
                   ),

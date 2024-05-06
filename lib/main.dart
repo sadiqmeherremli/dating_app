@@ -30,8 +30,14 @@ class MyApp extends StatelessWidget {
                   case 1:
                     Navigator.pushNamed(context, '/favorite');
                     break;
-                  // Diğer sayfaları burada ekleyebilirsiniz
-                  default:
+                     case 2:
+                    Navigator.pushNamed(context, '/message');
+                    break;
+                     case 3:
+                    Navigator.pushNamed(context, '/profile');
+                    break;
+                     case 4:
+                   default:
                     break;
                 }
               }
