@@ -8,7 +8,7 @@ void main() {
   runApp(const MyApp());
 }
 
-// MyApp widget'ında NavigationMenu'ya onItemTapped geri çağrısını tanımlama
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key});
 
