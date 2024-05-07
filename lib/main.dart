@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         '/favorite': (context) => Scaffold(
-          body: FavoritePage(), // Burada FavoritePage yerine diğer sayfaları ekleyebilirsiniz
+          body: FavoritePage(),
           bottomNavigationBar: NavigationMenu(
             pageIndex: 1,
             onItemTapped: (index) {
@@ -57,7 +57,6 @@ class MyApp extends StatelessWidget {
             },
           ),
         ),
-        // Diğer sayfaların yönlendirmelerini burada ekleyebilirsiniz
       },
     );
   }
