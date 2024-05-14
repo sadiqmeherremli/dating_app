@@ -35,7 +35,7 @@ class ProfileRow extends StatelessWidget {
               country: countryCard1,
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: ProfileCard(
               imagePath: imagePath2,

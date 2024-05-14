@@ -13,6 +13,7 @@ class NavigationMenu extends StatefulWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _NavigationMenuState createState() => _NavigationMenuState();
 
   @override
@@ -39,26 +40,35 @@ class _NavigationMenuState extends State<NavigationMenu> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             _buildIconButton(
-                SvgPicture.asset(
-                  "assets/icon/home_icon.svg",
-                ),
-                0),
+              SvgPicture.asset(
+                "assets/icon/home_icon.svg",
+                // ignore: deprecated_member_use
+                color: widget.pageIndex == 0 ? Colors.white : null,
+              ),
+              0,
+            ),
             _buildIconButton(
               SvgPicture.asset(
                 "assets/icon/favorite_icon.svg",
+                // ignore: deprecated_member_use
+                color: widget.pageIndex == 1 ? Colors.white : null,
               ),
               1,
             ),
             _buildIconButton(
-                SvgPicture.asset(
-                  "assets/icon/message_icon.svg",
-                ),
-                2),
+              SvgPicture.asset(
+                "assets/icon/message_icon.svg",
+                color: widget.pageIndex == 2 ? Colors.white : null,
+              ),
+              2,
+            ),
             _buildIconButton(
-                SvgPicture.asset(
-                  "assets/icon/user_icon.svg",
-                ),
-                3),
+              SvgPicture.asset(
+                "assets/icon/user_icon.svg",
+                color: widget.pageIndex == 3 ? Colors.white : null,
+              ),
+              3,
+            ),
           ],
         ),
       ),
@@ -71,13 +81,13 @@ class _NavigationMenuState extends State<NavigationMenu> {
         widget.onItemTapped?.call(pageIndex);
       },
       child: Container(
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: widget.pageIndex == pageIndex
               ? AppColors.colorPrimary
               : Colors.transparent,
         ),
-        padding: const EdgeInsets.all(12),
         child: icon,
       ),
     );

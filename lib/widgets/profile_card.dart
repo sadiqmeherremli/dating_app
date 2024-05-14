@@ -43,86 +43,98 @@ class ProfileCard extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(
-              boxShadow: [
-                BoxShadow(color: AppColors.bgColor),
-              ],
-              color: AppColors.bgColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(14),
-                bottomRight: Radius.circular(14),
+          Expanded(
+            child: Container(
+             
+              
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(color: AppColors.bgColor),
+                ],
+                color: AppColors.bgColor,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(14),
+                  bottomRight: Radius.circular(14),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 14, top: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 6),
-                    child: Text(profileName, style: theme.displayLarge),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset("assets/icon/location_icon.svg",
-                            width: 16,
-                            height: 16,
-                            // ignore: deprecated_member_use
-                            color: AppColors.colorBorder),
-                        Text(country, style: theme.displaySmall),
-                      ],
+              child: Padding(
+                padding: const EdgeInsets.only( top: 10,),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 6, left: 14),
+                      child: Text(
+                        profileName,
+                        style: theme.displayLarge,
+                        maxLines: 1, 
+                        overflow: TextOverflow
+                            .ellipsis,
+                      ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: const Color(0xFFFEECEC),
-                              borderRadius: BorderRadius.circular(12)),
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8, top: 8),
-                            child: SvgPicture.asset(
-                              "assets/image/icon_like.svg",
-                              width: 10,
-                              height: 10,
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16,left: 11),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset("assets/icon/location_icon.svg",
+                              width: 16,
+                              height: 16,
+                              // ignore: deprecated_member_use
+                              color: AppColors.colorBorder),
+                          Text(country, style: theme.displaySmall),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15,right: 15,bottom: 0),
+                      child: Row(
+                        
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        
+                        children: [
+                          Expanded(
+                            
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFFFEECEC),
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 8, top: 8,),
+                                child: SvgPicture.asset(
+                                  "assets/image/icon_like.svg",
+                                  width: 10,
+                                  height: 10,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: const Color(0xFFFAFAFA),
-                              borderRadius: BorderRadius.circular(12)),
-                          child: Padding(
-                              padding: const EdgeInsets.only(
-                                top: 6,
-                                bottom: 6,
+                          const SizedBox(
+                            width: 6,
+                          ),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFFFAFAFA),
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 6,
+                                    bottom: 6,
+                                    
+                                  ),
+                                  child: Image.asset(
+                                    "assets/image/icon_hi.png",
+                                    width: 14,
+                                    height: 14,
+                                ),
                               ),
-                              child: Image.asset(
-                                "assets/image/icon_hi.png",
-                                width: 14,
-                                height: 14,
-                              )),
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        width: 14,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  )
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -131,3 +143,5 @@ class ProfileCard extends StatelessWidget {
     );
   }
 }
+
+

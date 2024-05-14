@@ -1,3 +1,5 @@
+import 'package:dating_app/screens/message_page.dart';
+import 'package:dating_app/screens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dating_app/constants/typography_theme.dart';
 import 'package:dating_app/screens/home_page.dart';
@@ -8,9 +10,21 @@ void main() {
   runApp(const MyApp());
 }
 
-// MyApp widget'ında NavigationMenu'ya onItemTapped geri çağrısını tanımlama
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _pageIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _pageIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,47 +32,29 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Dating App',
       theme: TypographyTheme.appThemeData,
-      initialRoute: '/', // Ana sayfa için '/'
-      routes: {
-        '/': (context) => Scaffold(
-          body: HomePage(),
-          bottomNavigationBar: NavigationMenu(
-            pageIndex: 0,
-            onItemTapped: (index) {
-              if (index != 0) {
-                switch (index) {
-                  case 1:
-                    Navigator.pushNamed(context, '/favorite');
-                    break;
-                     case 2:
-                    Navigator.pushNamed(context, '/message');
-                    break;
-                     case 3:
-                    Navigator.pushNamed(context, '/profile');
-                    break;
-                     case 4:
-                   default:
-                    break;
-                }
-              }
-            },
-          ),
+      home: Scaffold(
+        body: _getPage(_pageIndex),
+        bottomNavigationBar: NavigationMenu(
+          pageIndex: _pageIndex,
+          onItemTapped: _onItemTapped,
         ),
-        '/favorite': (context) => Scaffold(
-          body: FavoritePage(), // Burada FavoritePage yerine diğer sayfaları ekleyebilirsiniz
-          bottomNavigationBar: NavigationMenu(
-            pageIndex: 1,
-            onItemTapped: (index) {
-              if (index == 0) {
-                Navigator.popUntil(context, ModalRoute.withName('/'));
-              } else if (index != 1) {
-                Navigator.pushNamed(context, '/');
-              }
-            },
-          ),
-        ),
-        // Diğer sayfaların yönlendirmelerini burada ekleyebilirsiniz
-      },
+      ),
     );
+  }
+
+  Widget _getPage(int index) {
+    switch (index) {
+      case 0:
+        return const HomePage();
+      case 1:
+        return const FavoritePage();
+      case 2:
+        return const MessagePage();
+      case 4:
+        return const ProfilePage();
+
+      default:
+        return Container();
+    }
   }
 }

@@ -1,22 +1,24 @@
-import '../Constants/app_colors.dart';
+import '../constants/app_colors.dart';
 import '../widgets/custom_appbar.dart';
+import '../widgets/profile_grid.dart';
 import 'package:flutter/material.dart';
-import '../widgets/profile_row.dart';
 import '../widgets/tab_button.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _isNearYouSelected = true;
+  bool _isNewMatchesSelected = false;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-
-    const String imagePath1 = 'assets/image/jenny_23.png';
-    const String imagePath2 = 'assets/image/corolina.jpg';
-    const String imagePath3 = 'assets/image/laurent.png';
-    const String imagePath4 = 'assets/image/lily.png';
-    const String imagePath5 = 'assets/image/adela.png';
-    const String imagePath6 = 'assets/image/agnes.png';
 
     return Scaffold(
       appBar: CustomAppBar(theme: textTheme),
@@ -26,61 +28,47 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.all(5),
+              margin: const EdgeInsets.all(5),
               decoration: BoxDecoration(
-                  color: Color(0xFFFAFAFA),
+                  color: const Color(0xFFFAFAFA),
                   borderRadius: BorderRadius.circular(200)),
               child: Row(
                 children: [
                   TabButton(
-                    textTheme: textTheme,
-                    backgroungColor: AppColors.colorPrimary,
+                    onPressed: () {
+                      setState(() {
+                        _isNearYouSelected = true;
+                        _isNewMatchesSelected = false;
+                      });
+                    },
                     text: "Near You",
+                    textTheme: textTheme,
+                    backgroundColor: _isNearYouSelected
+                        ? AppColors.colorPrimary
+                        : Colors.white,
+                    isSelected: _isNearYouSelected,
                   ),
                   TabButton(
-                    textTheme: textTheme,
-                    backgroungColor: Colors.transparent,
+                    onPressed: () {
+                      setState(() {
+                        _isNearYouSelected = false;
+                        _isNewMatchesSelected = true;
+                      });
+                    },
                     text: "New Matches",
                     isRight: true,
+                    textTheme: textTheme,
+                    backgroundColor: _isNewMatchesSelected
+                        ? AppColors.colorPrimary
+                        : Colors.white,
+                    isSelected: _isNewMatchesSelected,
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 24),
             Expanded(
-              child: ListView.builder(
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return const Column(
-                    children: [
-                      ProfileRow(
-                        imagePath1: imagePath1,
-                        imagePath2: imagePath2,
-                        profileName1: 'Jenny, 23',
-                        profileName2: 'Caroline Sky, 29',
-                        countryCard1: 'Indonesia',
-                        countryCard2: 'Spain',
-                      ),
-                      ProfileRow(
-                        imagePath1: imagePath3,
-                        imagePath2: imagePath4,
-                        profileName1: 'Laurent, 27',
-                        profileName2: 'Lily James, 29',
-                        countryCard1: 'New York, USA',
-                        countryCard2: 'Malaysia',
-                      ),
-                      ProfileRow(
-                        imagePath1: imagePath5,
-                        imagePath2: imagePath6,
-                        profileName1: 'Adela, 21',
-                        profileName2: 'Agnes, 24',
-                        countryCard1: 'Canada',
-                        countryCard2: 'Italy',
-                      ),
-                    ],
-                  );
-                },
-              ),
+              child: ProfileGrid(),
             ),
           ],
         ),

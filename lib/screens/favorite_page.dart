@@ -1,52 +1,33 @@
+import 'package:dating_app/widgets/profile_grid.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/profile_row.dart';
 
-class FavoritePage extends StatelessWidget {
+
+class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+  State<FavoritePage> createState() => _FavoritePageState();
+}
 
-    const String imagePath1 = 'assets/image/jenny_23.png';
-    const String imagePath2 = 'assets/image/corolina.jpg';
+class _FavoritePageState extends State<FavoritePage> {
+
+
+  @override
+  Widget build(BuildContext context) {
+   
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-      ),
+      appBar: AppBar(title: Text("Favorites")),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding:
+            const EdgeInsets.only(right: 26, left: 26, top: 20, bottom: 20),
         child: Column(
           children: [
+           
             const SizedBox(height: 24),
             Expanded(
-              child: ListView.builder(
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return const Column(
-                    children: [
-                      ProfileRow(
-                        imagePath1: imagePath1,
-                        imagePath2: imagePath2,
-                        profileName1: 'Jenny, 23',
-                        profileName2: 'Caroline Sky, 29',
-                        countryCard1: 'Indonesia',
-                        countryCard2: 'Spain',
-                      ),
-                      ProfileRow(
-                        imagePath1: imagePath1,
-                        imagePath2: imagePath2,
-                        profileName1: 'Laurent, 27',
-                        profileName2: 'Lily James, 29',
-                        countryCard1: 'New York, USA',
-                        countryCard2: 'Malaysia',
-                      ),
-                    ],
-                  );
-                },
-              ),
+              child: ProfileGrid(), 
             ),
           ],
         ),
