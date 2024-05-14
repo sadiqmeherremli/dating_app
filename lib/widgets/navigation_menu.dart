@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dating_app/constants/app_colors.dart';
 import 'package:flutter_svg/svg.dart';
+import '../constants/app_assets.dart';
 
 class NavigationMenu extends StatefulWidget implements PreferredSizeWidget {
   final int pageIndex;
@@ -41,7 +42,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
           children: [
             _buildIconButton(
               SvgPicture.asset(
-                "assets/icon/home_icon.svg",
+                AppAssets.homeIconPath,
                 // ignore: deprecated_member_use
                 color: widget.pageIndex == 0 ? Colors.white : null,
               ),
@@ -49,7 +50,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
             ),
             _buildIconButton(
               SvgPicture.asset(
-                "assets/icon/favorite_icon.svg",
+                AppAssets.favoriteIconPath,
                 // ignore: deprecated_member_use
                 color: widget.pageIndex == 1 ? Colors.white : null,
               ),
@@ -57,14 +58,16 @@ class _NavigationMenuState extends State<NavigationMenu> {
             ),
             _buildIconButton(
               SvgPicture.asset(
-                "assets/icon/message_icon.svg",
+                AppAssets.messageIconPath,
+                // ignore: deprecated_member_use
                 color: widget.pageIndex == 2 ? Colors.white : null,
               ),
               2,
             ),
             _buildIconButton(
               SvgPicture.asset(
-                "assets/icon/user_icon.svg",
+                AppAssets.userIconPath,
+                // ignore: deprecated_member_use
                 color: widget.pageIndex == 3 ? Colors.white : null,
               ),
               3,

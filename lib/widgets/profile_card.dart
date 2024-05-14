@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../constants/app_assets.dart';
 import '../constants/app_colors.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -8,13 +9,13 @@ class ProfileCard extends StatelessWidget {
   final String profileName;
   final String country;
 
-  const ProfileCard(
-      {Key? key,
-      required this.imagePath,
-      required this.theme,
-      required this.profileName,
-      required this.country})
-      : super(key: key);
+  const ProfileCard({
+    Key? key,
+    required this.imagePath,
+    required this.theme,
+    required this.profileName,
+    required this.country,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +46,6 @@ class ProfileCard extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-             
-              
               decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(color: AppColors.bgColor),
@@ -58,7 +57,7 @@ class ProfileCard extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only( top: 10,),
+                padding: const EdgeInsets.only(top: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -67,41 +66,40 @@ class ProfileCard extends StatelessWidget {
                       child: Text(
                         profileName,
                         style: theme.displayLarge,
-                        maxLines: 1, 
-                        overflow: TextOverflow
-                            .ellipsis,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 16,left: 11),
+                      padding: const EdgeInsets.only(bottom: 16, left: 11),
                       child: Row(
                         children: [
-                          SvgPicture.asset("assets/icon/location_icon.svg",
-                              width: 16,
-                              height: 16,
-                              // ignore: deprecated_member_use
-                              color: AppColors.colorBorder),
+                          SvgPicture.asset(
+                            AppAssets.locationIcon,
+                            width: 16,
+                            height: 16,
+                            // ignore: deprecated_member_use
+                            color: AppColors.colorBorder,
+                          ),
                           Text(country, style: theme.displaySmall),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15,right: 15,bottom: 0),
+                      padding: const EdgeInsets.only(left: 15, right: 15),
                       child: Row(
-                        
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        
                         children: [
                           Expanded(
-                            
                             child: Container(
                               decoration: BoxDecoration(
                                   color: const Color(0xFFFEECEC),
                                   borderRadius: BorderRadius.circular(12)),
                               child: Padding(
-                                padding: const EdgeInsets.only(bottom: 8, top: 8,),
+                                padding:
+                                    const EdgeInsets.only(bottom: 8, top: 8),
                                 child: SvgPicture.asset(
-                                  "assets/image/icon_like.svg",
+                                  AppAssets.likeIcon,
                                   width: 10,
                                   height: 10,
                                 ),
@@ -117,15 +115,14 @@ class ProfileCard extends StatelessWidget {
                                   color: const Color(0xFFFAFAFA),
                                   borderRadius: BorderRadius.circular(12)),
                               child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 6,
-                                    bottom: 6,
-                                    
-                                  ),
-                                  child: Image.asset(
-                                    "assets/image/icon_hi.png",
-                                    width: 14,
-                                    height: 14,
+                                padding: const EdgeInsets.only(
+                                  top: 6,
+                                  bottom: 6,
+                                ),
+                                child: Image.asset(
+                                  AppAssets.hiIcon,
+                                  width: 14,
+                                  height: 14,
                                 ),
                               ),
                             ),
@@ -143,5 +140,3 @@ class ProfileCard extends StatelessWidget {
     );
   }
 }
-
-
